@@ -1,3 +1,4 @@
+
 import local as lc
 import loc_ru as lr
 s = []
@@ -8,8 +9,12 @@ if loc == lc.EN:
     if ans == lc.ANS_1:
         for i in range(len(fill)):
             for j in range(lc.NUM):
-                if fill[i] == lc.AZBUKA_EN[j]:
-                    s.append(lc.AZBUKA_EN[j+1])
+                try:
+                    if fill[i] == lc.AZBUKA_EN[j]:
+                        s.append(lc.AZBUKA_EN[j + 1])
+                except IndexError:
+                    j -= lc.NUM
+                    s.append(lc.AZBUKA_EN[j + 1])
         print(''.join(s))
     elif ans == lc.ANS_2:
         for i in range(len(fill)):
@@ -27,8 +32,12 @@ elif loc == lc.RU:
     if ans == lr.AN_1:
         for i in range(len(fill)):
             for j in range(lr.NUM_1):
-                if fill[i] == lr.AZBUKA_RU[j]:
-                    s.append(lr.AZBUKA_RU[j + 1])
+                try:
+                    if fill[i] == lr.AZBUKA_RU[j]:
+                        s.append(lr.AZBUKA_RU[j + 1])
+                except IndexError:
+                    j -= lc.NUM
+                    s.append(lc.AZBUKA_RU[j + 1])
         print(''.join(s))
     elif ans == lr.AN_2:
         for i in range(len(fill)):
